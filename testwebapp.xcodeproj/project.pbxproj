@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		ED68971C2CAB4A91002CEABB /* PWA in Resources */ = {isa = PBXBuildFile; fileRef = ED68971B2CAB4A91002CEABB /* PWA */; };
 		ED6C3BEF2CA96159000BF922 /* testwebappApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6C3BEE2CA96159000BF922 /* testwebappApp.swift */; };
 		ED6C3BF12CA96159000BF922 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED6C3BF02CA96159000BF922 /* ContentView.swift */; };
 		ED6C3BF32CA9615A000BF922 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ED6C3BF22CA9615A000BF922 /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		ED68971B2CAB4A91002CEABB /* PWA */ = {isa = PBXFileReference; lastKnownFileType = folder; path = PWA; sourceTree = "<group>"; };
 		ED6C3BEB2CA96159000BF922 /* testwebapp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = testwebapp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		ED6C3BEE2CA96159000BF922 /* testwebappApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = testwebappApp.swift; sourceTree = "<group>"; };
 		ED6C3BF02CA96159000BF922 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 		ED6C3BED2CA96159000BF922 /* testwebapp */ = {
 			isa = PBXGroup;
 			children = (
+				ED68971B2CAB4A91002CEABB /* PWA */,
 				ED6C3BFE2CA96271000BF922 /* index.html */,
 				ED6C3BEE2CA96159000BF922 /* testwebappApp.swift */,
 				ED6C3BF02CA96159000BF922 /* ContentView.swift */,
@@ -140,6 +143,7 @@
 				ED6C3BFF2CA96271000BF922 /* index.html in Resources */,
 				ED6C3BF62CA9615A000BF922 /* Preview Assets.xcassets in Resources */,
 				ED6C3BF32CA9615A000BF922 /* Assets.xcassets in Resources */,
+				ED68971C2CAB4A91002CEABB /* PWA in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

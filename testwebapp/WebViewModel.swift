@@ -23,7 +23,10 @@ class WebViewModel: NSObject, ObservableObject, WKScriptMessageHandler {
     }
 
     func loadHTMLFile(named htmlFileName: String) {
-        if let htmlPath = Bundle.main.path(forResource: htmlFileName, ofType: "html") {
+        if let url = Bundle.main.url(forResource: htmlFileName, withExtension: "html", subdirectory: "PWA") {
+            webView?.loadFileURL(url, allowingReadAccessTo: url)
+        }
+        else if let htmlPath = Bundle.main.path(forResource: htmlFileName, ofType: "html") {
             do {
                 let htmlContent = try String(contentsOfFile: htmlPath, encoding: .utf8)
                 webView?.loadHTMLString(htmlContent, baseURL: nil)
@@ -94,7 +97,7 @@ class WebViewModel: NSObject, ObservableObject, WKScriptMessageHandler {
     
     
     func msgToJs_Cancelled(messageID: Int, _ completion: @escaping (Bool) -> Void){
-        webView?.evaluateJavaScript("javaScriptCancelled(\(messageID))") { (result, error) in
+        webView?.evaluateJavaScript("window.javaScriptCancelled(\(messageID))") { (result, error) in
             if let returnedMsgID = result as? Int{
                 completion(error == nil && returnedMsgID > -1)
             } else {
@@ -104,7 +107,7 @@ class WebViewModel: NSObject, ObservableObject, WKScriptMessageHandler {
     }
     
     func msgToJs_Sent(messageID: Int, _ completion: @escaping (Bool) -> Void){
-        webView?.evaluateJavaScript("javaScriptSent(\(messageID))") { (result, error) in
+        webView?.evaluateJavaScript("window.javaScriptSent(\(messageID))") { (result, error) in
             if let returnedMsgID = result as? Int{
                 completion(error == nil && returnedMsgID > -1)
             } else {
@@ -115,7 +118,7 @@ class WebViewModel: NSObject, ObservableObject, WKScriptMessageHandler {
     
     func msgToJs_Failed(messageID: Int, _ completion: @escaping (Bool) -> Void){
         
-        webView?.evaluateJavaScript("javaScriptFailed(\(messageID))") { (result, error) in
+        webView?.evaluateJavaScript("window.javaScriptFailed(\(messageID))") { (result, error) in
             if let error = error {
                 print("Error sending message to JavaScript: \(error)")
                 completion(false)
@@ -131,7 +134,7 @@ class WebViewModel: NSObject, ObservableObject, WKScriptMessageHandler {
     }
     
     func msgToJs_UnknownErr(messageID: Int, _ completion: @escaping (Bool) -> Void){
-        webView?.evaluateJavaScript("javaScriptUnknownErr(\(messageID))") { (result, error) in
+        webView?.evaluateJavaScript("window.javaScriptUnknownErr(\(messageID))") { (result, error) in
             if let returnedMsgID = result as? Int{
                 completion(error == nil && returnedMsgID > -1)
             } else {
