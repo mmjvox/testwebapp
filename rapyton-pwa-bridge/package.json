@@ -1,0 +1,12 @@
+{
+  "name": "rapyton-pwa-bridge",
+  "version": "1.0.0",
+  "description": "a bridge between react and embedded js engines",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "MohammadJavad Khodabandeloo",
+  "license": "Non"
+}
